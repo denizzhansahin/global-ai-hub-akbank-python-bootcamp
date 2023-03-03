@@ -28,8 +28,10 @@ Grafik arayüz ile uyumlu Python dosyasını çalıştırmak için:
 Pizza.py dosyası ise ilgili tüm class ve diğer özellikleri ise pizza_class.py isimli Python dosyasından almaktadır.
 
 Grafik arayüzü görüntüsü:
+
 ![Ekran Görüntüsü - 2023-03-04 00-20-30](https://user-images.githubusercontent.com/95483485/222831545-59627313-3094-4dc9-a0eb-5b26055b3e61.png)
 
 Konsol ekranı görüntüsü:
+
 ![Ekran Görüntüsü - 2023-03-04 00-28-30](https://user-images.githubusercontent.com/95483485/222832851-050820c9-fb0a-4807-a8bf-b2664e734ef5.png)
 
