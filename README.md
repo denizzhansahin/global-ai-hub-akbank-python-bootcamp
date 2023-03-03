@@ -1,6 +1,6 @@
 # global-ai-hub-akbank-python-bootcamp
 Grafik Arayüz ile Pizzacı Dükkanı Projesi!
-![PizzaDeniz](https://user-images.githubusercontent.com/95483485/222827335-efa19334-0fe9-44f9-8817-6743c887bcc2.png)
+
                 
 
 PyQt5 kurmak için:
