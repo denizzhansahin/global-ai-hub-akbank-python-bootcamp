@@ -1,6 +1,5 @@
 # global-ai-hub-akbank-python-bootcamp
-
-[PizzaDeniz](https://user-images.githubusercontent.com/95483485/222826029-9043e251-36fb-47c1-b6b1-0300e63c369c.png)
+(https://user-images.githubusercontent.com/95483485/222826029-9043e251-36fb-47c1-b6b1-0300e63c369c.png)
 
 Grafik Arayüz ile Pizzacı Dükkanı Projesi!
 
