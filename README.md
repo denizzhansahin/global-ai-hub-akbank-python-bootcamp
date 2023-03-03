@@ -78,6 +78,87 @@ Sos ile ilgili kodlar:
                       def __init__(self,isim,fiyat,aciklama):
                         super().__init__(isim,fiyat,aciklama)
 
+Örnek pizza ve sos için nesnelerin oluşturulması:
+                     
+                     #sos nesnesi
+                     Zeytin_sos = Zeytin_sos("Zeytin Sos",10,"Bol Acı Sos")
+                     
+                     #pizza nesnesi
+                     Turk_Pizza1 = Turk_pizza("Türk Pizza",200,"Yozgat Yapımı", sos_select,["yumurta","un"])
+
+
+Kullanıcı ve kredi kartı ile ödeme işlemi için classların oluşturulması ile ilgili kodlar:
+                    
+                      class kredi_karti:
+                        def __init__(self,kredi_karti_no,kredi_karti_sifre,en_son_kullanim):
+                            self.kredi_karti_no = kredi_karti_no
+                            self.kredi_karti_sifre = kredi_karti_sifre
+                            self.en_son_kullanim = en_son_kullanim
+
+                    class kullanici(kredi_karti):
+                        def __init__(self,isim,soyisim,TC_No,kredi_karti_no,kredi_karti_sifre,en_son_kullanim):
+                            self.isim = isim
+                            self.soyisim = soyisim
+                            self.TC_No = TC_No
+                            super().__init__(kredi_karti_no,kredi_karti_sifre,en_son_kullanim)
+
+                    class satis_islem(kullanici):
+                        def __init__(self,isim,soyisim,TC_No,kredi_karti_no,kredi_karti_sifre,en_son_kullanim,satin_alinan_pizza_isim,satin_alinan_pizza_fiyat):
+                            super().__init__(isim,soyisim,TC_No,kredi_karti_no,kredi_karti_sifre,en_son_kullanim)
+                            self.satin_alinan_pizza_isim = satin_alinan_pizza_isim
+                            self.satin_alinan_pizza_fiyat = satin_alinan_pizza_fiyat
+
+Müşterinin seçtiği pizza ile ilgili nesne oluşturma kodu ise aşağıda paylaşılmıştır. Ayrıca musteri_pizza_secme, kullanici_secim fonksiyonları birbirleri ile bağlantılıdır ve aşağıda paylaşılmıştır. Ayrıca secilen_urun_yazdir fonksiyonu ise müşterinin seçtiği pizza ile ilgili ekrana çıktı yazdırır.
+
+Müşterinin pizza seçimi ile kodların bir kısmı:
+
+                    def musteri_pizza_secme(pizza_deger,sos_deger, k_isim, k_soyisim, k_tc, k_kredi_no, k_sifre):
+                        pizza_select = pizza_deger
+                        sos_select = sos_deger
+
+                        if pizza_select == "Türk Pizza":
+                          Turk_Pizza1 = Turk_pizza("Türk Pizza",200,"Yozgat Yapımı", sos_select,["yumurta","un"])
+                          secilen_urun_yazdir(Turk_Pizza1.isim,Turk_Pizza1.sos_tur,Turk_Pizza1.bilgi_fiyat())
+                          kullanici_islem(Turk_Pizza1.isim,Turk_Pizza1.fiyat,k_isim, k_soyisim, k_tc, k_kredi_no, k_sifre)
+
+Kullanıcının bilgileri ile şipariş bilgilerinin CSV ile kayıt edilmesi ile ilgili kodlar:
+                    
+                    def kullanici_islem(urun_isim,urun_fiyat, k_isim, k_soyisim,k_tc, k_kredi_no, k_sifre):
+                      zaman = datetime.datetime.now()
+                      zaman = datetime.datetime.strftime(zaman, '%d.%m.%Y. %X')
+                      satis1 = satis_islem(k_isim,k_soyisim,k_tc,k_kredi_no,k_sifre,zaman,str(urun_isim),str(urun_fiyat))
+                      deger_pizza_musteri = [satis1.isim,satis1.soyisim,satis1.TC_No,satis1.kredi_karti_no,satis1.kredi_karti_sifre,satis1.en_son_kullanim,satis1.satin_alinan_pizza_isim,satis1.satin_alinan_pizza_fiyat]
+                      with open('pizza_musteri.csv','a') as pizza_musteri:
+                        yazdirma_islem = csv.writer(pizza_musteri)
+                        yazdirma_islem.writerow(deger_pizza_musteri)
+
+Şipariş ile bilgilerin ekrana yazdırılması ile kodların bir kısmı:
+
+                    def secilen_urun_yazdir(isim,sos,fiyat):
+                      print("Seçilen Pizza: {}\nSos : {}\nToplam Tutar: {}".format(isim,sos,fiyat))
+
+Grafik arayüz ile ilgili dosya ile elde edilen verinin aktarılması ile ilgili kodların bir kısmı aşağıda paylaşılmıştır.
+                  
+                    self.turk_pizza_sec.stateChanged.connect(turk_pizza_secim)
+                    
+                    self.zeytin_sos_sec.stateChanged.connect(zeytin_sos_secim)
+                    
+                    self.odeme_yap.clicked.connect(self.odeme_yapmak)
+                    
+                  def odeme_yapmak(self):
+                    try:
+                        pizza_class.musteri_pizza_secme(pizza_secim,sos_secim,self.isim_line.text(),self.soyisim_line.text(),self.tc_no_line.text(),self.kart_no_line.text(),self.kart_sifre_line.text())
+                    except:
+                        print("HATA İŞLEM YAPILAMADI!")
+            
+             def turk_pizza_secim():
+                global pizza_secim
+                pizza_secim = "Türk Pizza"
+
+             def zeytin_sos_secim():
+                global sos_secim
+                sos_secim = "Zeytin"
+
 Uygulama Jupiter Notenook dosyası ve Python dosyaları olmak üzere iki farklı kullanım ile hazırlanmıştır. Jupiter Notebook dosyası ve Python dosyası Google Colab veya herhangi bir IDE ile kullanılabilir.
 
 Grafik arayüz ile uyumlu Python dosyasını çalıştırmak için:
