@@ -29,9 +29,12 @@ Pizza.py dosyası ise ilgili tüm class ve diğer özellikleri ise pizza_class.p
 
 Grafik arayüzü görüntüsü:
 
-![Ekran Görüntüsü - 2023-03-04 00-20-30](https://user-images.githubusercontent.com/95483485/222831545-59627313-3094-4dc9-a0eb-5b26055b3e61.png)
+<p align="center">
+<img width="988" height="999" src="https://user-images.githubusercontent.com/95483485/222834053-143140e4-8e84-4990-9a9b-6498028587fa.png">
+</p>
 
 Konsol ekranı görüntüsü:
 
-![Ekran Görüntüsü - 2023-03-04 00-28-30](https://user-images.githubusercontent.com/95483485/222832851-050820c9-fb0a-4807-a8bf-b2664e734ef5.png)
-
+<p align="center">
+<img width="988" height="999" src="https://user-images.githubusercontent.com/95483485/222834672-6cfa1b95-987e-49aa-8ac3-c2d92fa1bd0f.png">
+</p>
