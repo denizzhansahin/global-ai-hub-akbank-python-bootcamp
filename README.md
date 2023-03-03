@@ -2,7 +2,6 @@
 Grafik Arayüz ile Pizzacı Dükkanı Projesi
 
 PyQt5 kurmak için:
-pip install pyqt5
 
 pip install PyQt5
 
