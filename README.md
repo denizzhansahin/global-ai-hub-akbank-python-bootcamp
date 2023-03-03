@@ -1,7 +1,8 @@
 # global-ai-hub-akbank-python-bootcamp
 Grafik Arayüz ile Pizzacı Dükkanı Projesi!
-      ![bilgi](https://user-images.githubusercontent.com/95483485/222829007-0a914961-19c0-4e1e-87b9-faed264a111a.png)
-          
+
+.................................................<img src="https://user-images.githubusercontent.com/95483485/222829943-6ecf4568-484b-4dd4-9783-b0f0869937be.png">.................................................
+
 
 PyQt5 kurmak için:
 
@@ -14,5 +15,3 @@ FPDF kurmak için:
 Python grafik arayüz kütüphanesi PyQt5 ile bir pizzacı işletmesinin şipariş alma ve CSV destekli bir veritabanına eklenmesi sağlanmaktadır.
 Müşteri için Türk Pizza, Klasik Pizza, Margherita Pizza ve Dominos Pizza çeşitleri ve mantar sosu, mısır sosu, keçi peyniri sosu, et sosu, soğan sosu,zeytin sosu oluşturulmuştur. Bu sosların ve pizzaların her biri için class oluşturulmuştur. Bu classlara isim, değer, açıklama gibi özellikler eklenmiş ve bu classlar ile pizzalar ve soslar için nesneler oluşturulmuştur.
 Müşteriden ise isim, soyisim, kimlik numarası, kredi kartı kimlik numarası ve kredi kartı şifresi istenmektedir. Ödeme işlemi yapıldıktan sonra CSV dosyasına Python'da yer alan datetime kütüphanesinden alınan zaman bilgisli ile diğer gerekli bilgiler kayıt edilmektedir. Kullanıcı isterse fatura alma özelliği ile şiparişi ile ilgili PDF dosyasını da alabilir.
-
-
