@@ -159,6 +159,10 @@ Grafik arayüz ile ilgili dosya ile elde edilen verinin aktarılması ile ilgili
                 global sos_secim
                 sos_secim = "Zeytin"
 
+Örnek CSV dosyası bilgileri ise aşağıdaki gibidir. Sırası ile isim, soyisim,kimlik numarası, kredi kartı numarası, kredi kartı şifresi, ödeme tarihi, şipariş edilen ürünün adı ve şipariş tutarı yazılmıştır.
+
+            Denizhan,Şahin,124123412341234,444444444444444,123444,04.03.2023. 00:27:54,Türk Pizza,220
+
 Uygulama Jupiter Notenook dosyası ve Python dosyaları olmak üzere iki farklı kullanım ile hazırlanmıştır. Jupiter Notebook dosyası ve Python dosyası Google Colab veya herhangi bir IDE ile kullanılabilir.
 
 Grafik arayüz ile uyumlu Python dosyasını çalıştırmak için:
