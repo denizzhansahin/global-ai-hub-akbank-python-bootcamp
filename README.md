@@ -165,8 +165,12 @@ Grafik arayüz ile ilgili dosya ile elde edilen verinin aktarılması ile ilgili
 
 Uygulama Jupiter Notenook dosyası ve Python dosyaları olmak üzere iki farklı kullanım ile hazırlanmıştır. Jupiter Notebook dosyası ve Python dosyası Google Colab veya herhangi bir IDE ile kullanılabilir.
 
-Grafik arayüz ile uyumlu Python dosyasını çalıştırmak için:
+Grafik arayüz dosyasını (form.ui), Python dosyasına (Pizza.py) dönüştürmek için:
 
+          pyuic5 -x form.ui -o Pizza.py
+      
+Python dosyası (Pizza.py) çalıştırmak için:
+          
           python3 Pizza.py
 
 Pizza.py dosyası ise ilgili tüm class ve diğer özellikleri ise pizza_class.py isimli Python dosyasından almaktadır.
