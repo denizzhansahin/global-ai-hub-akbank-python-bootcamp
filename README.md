@@ -161,9 +161,80 @@ Grafik arayüz ile ilgili dosya ile elde edilen verinin aktarılması ile ilgili
 
 Örnek CSV dosyası bilgileri ise aşağıdaki gibidir. Sırası ile isim, soyisim,kimlik numarası, kredi kartı numarası, kredi kartı şifresi, ödeme tarihi, şipariş edilen ürünün adı ve şipariş tutarı yazılmıştır.
 
-            Denizhan,Şahin,124123412341234,444444444444444,123444,04.03.2023. 00:27:54,Türk Pizza,220
+            Denizhan,Sahin,123456789000000,222222222222222,143242,05.03.2023. 01:29:02,Dominos Pizza,290
 
-Uygulama Jupiter Notenook dosyası ve Python dosyaları olmak üzere iki farklı kullanım ile hazırlanmıştır. Jupiter Notebook dosyası ve Python dosyası Google Colab veya herhangi bir IDE ile kullanılabilir.
+Uygulama Jupiter Notenook dosyası ve Python dosyaları olmak üzere iki farklı kullanım ile hazırlanmıştır. Jupiter Notebook dosyası ve Python dosyası Google Colab veya herhangi bir IDE ile kullanılabilir. Ayrıca Jupiter Notebook dosyası içinde PDF ile fatura alma özelliği mevcut değildir.
+
+PDF ile fatura alma özelliği pizza_class.py dosyası içinde yer alan PDF isimli class ile yapılmaktadır. Pizza.py ile aşağıdaki komut ile ilgili class çalıştırılır.
+
+            self.fatura_goster.clicked.connect(self.fatura)
+
+        def fatura(self):
+            try:
+                pizza_class.fatura.islem()
+            except:
+                print("HATA FATURA OLUŞTURULAMADI!")
+                
+pizza_class.fatura.islem() ile aşağıdaki kod çalıştırılır ve bu kod pizza_class.py içinde yer alır.
+
+      class PDF(FPDF):
+          def header(self):
+              # Logo
+              self.image('icon/PizzaDeniz.png', 10, 10, 30)
+              # Arial bold 15
+              self.set_font('Arial', 'B', 15)
+              # Move to the right
+              self.cell(50)
+              # Title
+              self.cell(10, 10, 'Pizza Deniz - Online Odeme')
+              # Line break
+              self.ln(20)
+
+
+          def footer(self):
+              # Position at 1.5 cm from bottom
+              self.set_y(-15)
+              # Arial italic 8
+              self.set_font('Arial', 'I', 8)
+              # Page number
+              self.cell(0, 10, 'Fatura Belgesi' + str(self.page_no()) + '/{nb}', 0, 0, 'C')
+
+      class fatura():
+        def islem():
+          pdf = PDF()
+          pdf.alias_nb_pages()
+          pdf.add_page()
+          pdf.set_font('Arial', '', 12)
+
+          pdf.cell(0,5,"Bu fatura belgesi online ortam uzerinde olusturulmustur.",0,1)
+          pdf.cell(0,5,"Bu fatura belgesi musterinin istegi uzerine olusturulmustur.",0,1)
+          pdf.cell(0,5,"Bu belgeyi saklayiniz.",0,1)
+          pdf.cell(0,5," ",0,1)
+          pdf.line(0,45,210,45)
+
+
+          pdf.cell(0,5," ",0,1)
+          pdf.cell(0,5,"SIPARIS EDILEN URUN BILGILERI",0,1)
+          pdf.line(0,85,100,85)
+
+          pdf.cell(0,5,"Urun Tipi             :"+str(" ")+str("Pizza"),0,1)
+          pdf.cell(0,5,"Urun Turu           :"+str(" ")+str(satis1.satin_alinan_pizza_isim),0,1)
+          pdf.cell(0,5,"Urun Fiyat           :"+str(" ")+str(satis1.satin_alinan_pizza_fiyat),0,1)
+
+
+
+          pdf.line(0,160,210,160)
+          pdf.image('icon/PizzaDeniz.png')
+
+
+          bilgi_deger_yazi = "MusteriFatura"+str("_")+str(satis1.en_son_kullanim)
+          print(bilgi_deger_yazi)
+
+          try:
+            pdf.output((bilgi_deger_yazi)+'.pdf', 'F')
+          except:
+            pdf.output((bilgi_deger_yazi)+'.pdf', 'F')
+
 
 Grafik arayüz dosyasını (form.ui), Python dosyasına (Pizza.py) dönüştürmek için:
 
@@ -178,11 +249,18 @@ Pizza.py dosyası ise ilgili tüm class ve diğer özellikleri ise pizza_class.p
 Grafik arayüzü görüntüsü:
 
 <p align="center">
-<img width="988" height="999" src="https://user-images.githubusercontent.com/95483485/222834053-143140e4-8e84-4990-9a9b-6498028587fa.png">
+<img width="988" height="999" src="https://user-images.githubusercontent.com/95483485/222959124-e0afd6c0-0ba8-4d65-ae6e-8c46f732e9a8.png">
 </p>
 
 Konsol ekranı görüntüsü:
 
 <p align="center">
-<img width="988" height="999" src="https://user-images.githubusercontent.com/95483485/222834672-6cfa1b95-987e-49aa-8ac3-c2d92fa1bd0f.png">
+<img width="988" height="999" src="https://user-images.githubusercontent.com/95483485/222959147-776cac72-a01f-4e4c-8834-cb0766ad59d2.png">
 </p>
+
+Fatura görseli PDF olarak :
+
+<p align="center">
+<img width="988" height="999" src="https://user-images.githubusercontent.com/95483485/222959217-9633b656-0ecc-419a-bf54-08b0a875e01c.png">
+</p>
+
